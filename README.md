@@ -1,30 +1,41 @@
 # Jenkins_Pipeline
 This is used for Jenkins CI/CD pipeline project
-# Branch Management:
+## Branch Management:
 
 1. Principal Branch: This refers to the main branch of your code, often called master.
 
 2. Branch (develop): This is a separate branch created from the master branch for testing commits. Once the changes are tested and approved, they can be merged back into the master branch.
-# Setting Up Your Environment:
+## Setting Up Your Environment:
 
 1. Create a virtual environment using the following command:
+'''bash
 python3 -m venv venv
-
-2. Activate the virtual environment:
+'''
+2. Activate the virtual environment
+'''bash
 source venv/bin/activate
-
+'''
 3. Install the required Python packages using pip:
+'''bash
 pip install -r requirements.txt
-
+bash
 4. Run the Flask application with the --debug flag for debugging purposes:
+'''bash
 python -m flask --debug run
-# Creating Database Tables:
+'''
+## Creating Database Tables:
 
 If you encounter an error indicating that a table is not found, you can create the necessary tables using the following steps:
 
 1. Start a Flask shell:
+'''bash
 flask shell
+'''
 2. Import the db object from your application:
+'''bash
 from app import db
+'''
 3. Create all the tables defined in your application:
+'''bash
 db.create_all()
+'''

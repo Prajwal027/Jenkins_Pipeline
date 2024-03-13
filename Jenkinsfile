@@ -1,5 +1,5 @@
 pipeline {
-    agent praj  // Run on any available agent
+    agent { label 'linux' }  // Run on any available agent
 
     stages {
         // Checkout stage

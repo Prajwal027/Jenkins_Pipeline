@@ -1,5 +1,5 @@
 pipeline {
-    agent any  // Run on any available agent
+    agent praj  // Run on any available agent
 
     stages {
         // Checkout stage

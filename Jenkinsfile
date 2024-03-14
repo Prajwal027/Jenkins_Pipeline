@@ -18,6 +18,8 @@ pipeline {
                 script {
                     // Install dependencies from requirements.txt
                     sh 'pip install -r requirements.txt'
+                    // run the python-flask file
+                    sh 'python3 flask_sql1.py'
                 }
             }
         }

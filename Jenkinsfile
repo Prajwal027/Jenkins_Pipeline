@@ -19,9 +19,23 @@ pipeline {
                     // Install dependencies from requirements.txt
                     sh 'pip install -r requirements.txt'
                     // run the python-flask file
-                    sh 'python3 flask_sql1.py'
+                    //sh 'python3 flask_sql1.py'
                 }
             }
         }
+
+        // Test stage
+        stage('Test') {
+            steps {
+                script {
+            // Activate the virtual environment
+                    sh 'source venv/bin/activate'
+
+            // Run unit tests with pytest
+                    sh 'python3 test/uni_test.py'  // Assuming your tests are in uni_test.py
+                }
+            }
+        }
+
     }
 }

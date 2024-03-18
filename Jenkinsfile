@@ -27,10 +27,11 @@ pipeline {
         // Test stage
         stage('Test') {
             steps {
-
+                    //Change the directory
+                    dir('tests'){
             // Run unit tests with pytest
-                    sh 'python3 test/uni_test.py'  // Assuming your tests are in uni_test.py
-                
+                    sh 'python3 uni_test.py'  // Assuming your tests are in uni_test.py
+                    }
                   }
              }
 

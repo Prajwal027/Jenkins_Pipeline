@@ -24,7 +24,7 @@ class TestCreate(unittest.TestCase):
             "bio": "This is a test biography",
         }
 
-        new_student = {
+        new_student1 = {
             "firstname": "Sid",
             "lastname": "rt",
             "email": f"Sid.rt@example.com",
@@ -33,7 +33,7 @@ class TestCreate(unittest.TestCase):
         }
         # Send POST request with data
         rv = self.app.post('/create', data=new_student)
-
+        rv1 = self.app.post('/create', data=new_student1)
         # Assert successful creation (redirect or database check)
         self.assertEqual(rv.status_code, 302)  # Assuming redirect on success
         # ... (Optional: Check if student is added to the database)

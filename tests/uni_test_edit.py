@@ -10,7 +10,7 @@ class TestEdit(unittest.TestCase):
 
     def test_edit_student_get(self):
         # Test GET request to access edit form
-        rv = self.app.get('/1/edit')  # Assuming you want to edit student with ID 1
+        rv = self.app.get('/3/edit')  # Assuming you want to edit student with ID 1
         self.assertEqual(rv.status_code, 200, "This Student_id is not created")  # Use status_code for clarity
 
     def test_edit_student_post(self):

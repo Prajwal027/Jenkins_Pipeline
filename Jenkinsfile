@@ -18,7 +18,6 @@ pipeline {
                 script {
                     // Install dependencies from requirements.txt
                     sh 'pip install -r requirements.txt'
-                    // run the python-flask file
                     //sh 'python3 flask_sql1.py'
                 }
             }
@@ -27,9 +26,9 @@ pipeline {
         // Test stage
         stage('Test') {
             steps {
-            // Run unit tests with pytest
-                    sh 'python3 tests/uni_test.py'  // Assuming your tests are in uni_test.py
-                    sh 'python3 tests
+            // Run unit tests with python3 using unittest module
+                    sh 'python3 tests/uni_test.py'  
+                    sh 'python3 tests/uni_test_edit.py'
                     //}
                   }
              }

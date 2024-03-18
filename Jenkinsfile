@@ -31,7 +31,7 @@ pipeline {
                     //dir('tests'){
             // Run unit tests with pytest
                     sh 'python3 tests/uni_test.py'  // Assuming your tests are in uni_test.py
-                    }
+                    //}
                   }
              }
 

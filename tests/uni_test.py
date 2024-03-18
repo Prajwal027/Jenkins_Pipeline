@@ -19,7 +19,7 @@ class TestCreate(unittest.TestCase):
         new_student = {
             "firstname": "John1",
             "lastname": "Doe",
-            "email": f"john.doe1@example.com",
+            "email": f"john.doe10@example.com",
             "age": 30,
             "bio": "This is a test biography",
         }
@@ -27,7 +27,7 @@ class TestCreate(unittest.TestCase):
         new_student1 = {
             "firstname": "Sid",
             "lastname": "rt",
-            "email": f"Sid.rt@example.com",
+            "email": f"Sid.rt0@example.com",
             "age": 23,
             "bio": "This is Sid",
         }

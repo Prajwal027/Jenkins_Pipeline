@@ -23,7 +23,7 @@ class TestEdit(unittest.TestCase):
             "bio": "This is an updated biography",
         }
         # Send POST request with data
-        rv = self.app.post('/1/edit', data=updated_student)  # Assuming you want to edit student with ID 1
+        rv = self.app.post('/3/edit', data=updated_student)  # Assuming you want to edit student with ID 1
         # Assert successful update (redirect or database check)
         self.assertEqual(rv.status_code, 302)  # Assuming redirect on success
         # ... (Optional: Check if student is updated in the database)

@@ -24,6 +24,13 @@ class TestCreate(unittest.TestCase):
             "bio": "This is a test biography",
         }
 
+        new_student = {
+            "firstname": "Sid",
+            "lastname": "rt",
+            "email": f"Sid.rt@example.com",
+            "age": 23,
+            "bio": "This is Sid",
+        }
         # Send POST request with data
         rv = self.app.post('/create', data=new_student)
 

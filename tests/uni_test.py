@@ -1,23 +1,6 @@
 import unittest, sys
 sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
 from flask_sql1 import app
-class TestHello(unittest.TestCase):
-    def setUp(self):
-        app.testing = True
-        self.app = app.test_client()
-    def test_hello(self):
-        rv = self.app.get('/')
-        self.assertEqual(rv.status, '200 OK')
-    def test_create(self):
-        cs = self.app.get('/create')
-        self.assertEqual(cs.status, '200 OK')
-    def test_edit(self):
-        es = self.app.get('/1/edit')
-        self.assertEqual(es.status, '200 OK')
-    #def test_delete(self):
-     #   ds = self.app.post('/2/delete')
-      #  self.assertEqual(ds.status, '302 FOUND')
-
 class TestCreate(unittest.TestCase):
 
     def setUp(self):

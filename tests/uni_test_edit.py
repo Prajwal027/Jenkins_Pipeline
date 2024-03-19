@@ -1,6 +1,6 @@
 import unittest, sys
 sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
-from flask_sql1 import app, db, student
+from flask_sql1 import app, db, Student
 
 class TestEdit(unittest.TestCase):
     def setUp(self):

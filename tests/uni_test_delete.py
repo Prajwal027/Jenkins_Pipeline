@@ -13,17 +13,18 @@ class TestDelete(unittest.TestCase):
             db.session.query(student).delete()
             db.session.commit()
     def test_delete_student(self):
-        student_id = 1             #new_student.id
-        existing_student = student.query.get(student_id)
-        self.assertIsNotNone(existing_student, "Student does not exist")
-        # Send a POST request to delete the student
-        rv = self.app.post(f'/{student_id}/delete')
-        # Check if the student has been deleted successfully
-        self.assertEqual(rv.status_code, 302)  # Assuming redirect on success
-        # Verify that the student has been deleted from the database
         with app.app_context():
-            deleted_student = student.query.get(student_id)
-            self.assertIsNone(deleted_student, "Student was not deleted from the database")
+            student_id = 1             #new_student.id
+            existing_student = student.query.get(student_id)
+            self.assertIsNotNone(existing_student, "Student does not exist")
+            # Send a POST request to delete the student
+            rv = self.app.post(f'/{student_id}/delete')
+            # Check if the student has been deleted successfully
+            self.assertEqual(rv.status_code, 302)  # Assuming redirect on success
+            # Verify that the student has been deleted from the database
+            with app.app_context():
+                deleted_student = student.query.get(student_id)
+                self.assertIsNone(deleted_student, "Student was not deleted from the database")
 
 if __name__ == '__main__':
     unittest.main()

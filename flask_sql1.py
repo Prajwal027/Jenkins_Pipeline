@@ -3,6 +3,7 @@ import os
 app = Flask(__name__)
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
+from sqlalchemy.exc import IntegrityError
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 

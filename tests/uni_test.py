@@ -36,9 +36,9 @@ class TestCreate(unittest.TestCase):
         rv1 = self.app.post('/create', data=new_student1)
         # Assert successful creation (redirect or database check)
         print(f"{rv.data}")
-        if self.assertIn(b"Email already exists. Please use a different email.", rv.data)==False:
+        if b"Email already exists. Please use a different email." not in rv.data:
             self.assertEqual(rv.status_code, 302)  # Assuming redirect on success
-        if self.assertIn(b"Email already exists. Please use a different email.", rv1.data)==False:
+        if b"Email already exists. Please use a different email." not in rv1.data:
             self.assertEqual(rv1.status_code, 302)
         # ... (Optional: Check if student is added to the database)
 

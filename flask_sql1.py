@@ -41,10 +41,16 @@ def create():
         email=request.form['email']
         age=int(request.form['age'])
         bio=request.form['bio']
-        firstname1 = student(firstname=firstname1, lastname=lastname, email=email, age=age, bio=bio)
-        db.session.add(firstname1)
-        db.session.commit()
-        return redirect(url_for('index'))
+        try:
+            firstname1 = student(firstname=firstname1, lastname=lastname, email=email, age=age, bio=bio)
+            db.session.add(firstname1)
+            db.session.commit()
+            return redirect(url_for('index'))
+        except IntegrityError:
+            # Rollback the session to prevent partially completed transactions
+            db.session.rollback()
+            # Return a message to the user indicating that the email is already taken
+            return "Email already exists. Please use a different email."
     return render_template('create.html')
 
 @app.route('/<int:S_id>/edit', methods=('POST', 'GET'))

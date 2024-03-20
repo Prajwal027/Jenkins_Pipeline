@@ -2,7 +2,6 @@
 import os
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import func
 from sqlalchemy.exc import IntegrityError
 
 app=Flask(__name__)
@@ -22,7 +21,6 @@ class Student(db.Model):
     lastname = db.Column(db.String(100), nullable = False)
     email = db.Column(db.String(100), unique = True, nullable = False)
     age = db.Column(db.Integer)
-    time = db.Column(db.DateTime(timezone=True), server_default = func.now())
     bio = db.Column(db.Text)
 
 @app.route('/')

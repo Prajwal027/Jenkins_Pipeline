@@ -1,8 +1,8 @@
 """This is used as test unit for delete() in flask application"""
+from flask_sql1 import app, db, Student
 import sys
 import unittest
 sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
-from flask_sql1 import app, db, Student
 
 class TestDelete(unittest.TestCase):
     """This class is used to setup, clean up the database after each test"""

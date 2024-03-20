@@ -34,6 +34,13 @@ pipeline {
                   }
              }
 
+        //Create Docker image stages
+        stage('Docker-build') {
+            steps {
+                sh 'docker build -t python-flask .'
+            }
+        }
+        
         // Static Code Analysis stage
         stage('Static code Analysis') {
             steps {

@@ -1,4 +1,0 @@
-************* Module uni_test_delete
-tests/uni_test_delete.py:4:0: C0413: Import "from flask_sql1 import app, db, Student" should be placed at the top of the module (wrong-import-position)
-tests/uni_test_delete.py:5:0: C0413: Import "import unittest" should be placed at the top of the module (wrong-import-position)
-tests/uni_test_delete.py:5:0: C0411: standard import "unittest" should be placed before first party import "flask_sql1.app"  (wrong-import-order)

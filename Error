@@ -1,23 +1,4 @@
-+ ls venv/bin
-activate
-activate.csh
-activate.fish
-Activate.ps1
-pip
-pip3
-pip3.10
-python
-python3
-python3.10
-[Pipeline] sh
-+ pylint flask_sql1.py tests/uni_test_delete.py tests/uni_test_edit.py tests/uni_test.py
-/var/lib/jenkins/workspace/Jenkins_miniproject@2@tmp/durable-7be9822c/script.sh.copy: line 1: pylint: command not found
-[Pipeline] }
-[Pipeline] // stage
-[Pipeline] }
-[Pipeline] // withEnv
-[Pipeline] }
-[Pipeline] // node
-[Pipeline] End of Pipeline
-ERROR: script returned exit code 127
-Finished: FAILURE
+************* Module uni_test_delete
+tests/uni_test_delete.py:4:0: C0413: Import "from flask_sql1 import app, db, Student" should be placed at the top of the module (wrong-import-position)
+tests/uni_test_delete.py:5:0: C0413: Import "import unittest" should be placed at the top of the module (wrong-import-position)
+tests/uni_test_delete.py:5:0: C0411: standard import "unittest" should be placed before first party import "flask_sql1.app"  (wrong-import-order)

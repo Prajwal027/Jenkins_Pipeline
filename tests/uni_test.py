@@ -1,7 +1,8 @@
 """This is a test unit for create() in flask application"""
-import unittest, sys
+import sys
 sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
 from flask_sql1 import app
+import unittest
 class TestCreate(unittest.TestCase):
     """
     This class is created to check on GET and POST request to access create form

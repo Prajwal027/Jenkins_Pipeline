@@ -39,6 +39,7 @@ pipeline {
             steps {
                 //sh 'pip install pylint'
                 sh 'source venv/bin/activate'
+                sh 'ls venv/bin'
                 sh 'pylint flask_sql1.py tests/*.py'
             }
         }

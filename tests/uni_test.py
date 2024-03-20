@@ -2,7 +2,7 @@
 import sys
 import unittest
 sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
-from flask_sql1 import app
+from flask_sql1 import app # pylint: disable=wrong-import-position
 
 class TestCreate(unittest.TestCase):
     """

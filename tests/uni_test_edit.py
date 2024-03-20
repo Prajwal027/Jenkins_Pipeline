@@ -1,8 +1,8 @@
 """This is a test unit for edit() in flask application"""
 import sys
+import unittest
 sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
 from flask_sql1 import app
-import unittest
 
 class TestEdit(unittest.TestCase):
     """

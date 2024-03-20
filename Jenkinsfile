@@ -34,5 +34,12 @@ pipeline {
                   }
              }
 
+        // Static Code Analysis stage
+        stage('Static code Analysis') {
+            steps {
+                sh 'pip install pylint'
+                sh 'pylint flask_sql1.py tests/*.py'
+            }
+        }
     }
 }

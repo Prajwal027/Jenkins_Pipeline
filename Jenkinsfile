@@ -37,10 +37,6 @@ pipeline {
         // Static Code Analysis stage
         stage('Static code Analysis') {
             steps {
-                //sh 'pip install pylint'
-                sh 'source venv/bin/activate'
-                sh 'pip install pylint'
-                sh 'ls venv/bin'
                 sh 'pylint flask_sql1.py tests/*.py'
             }
         }

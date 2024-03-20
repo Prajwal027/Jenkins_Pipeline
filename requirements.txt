@@ -9,3 +9,4 @@ flask-SQLAlchemy==3.1.1
 sqlalchemy>=2.0.16
 typing-extensions>=4.6.0
 greenlet!=0.4.17
+pylint

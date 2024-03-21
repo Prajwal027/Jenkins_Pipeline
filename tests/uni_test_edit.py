@@ -3,7 +3,7 @@ import sys
 import unittest
 sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
 from flask_sql1 import app # pylint: disable=wrong-import-position
-
+# pylint: disable=line-too-long
 class TestEdit(unittest.TestCase):
     """
     This class is used for GET request to access edit form and POST request with updated student data

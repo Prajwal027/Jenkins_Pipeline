@@ -43,8 +43,27 @@ pipeline {
         
         //Create Docker image stages
         stage('Docker-build') {
+            when {
+                expression { // Optional condition to trigger this stage
+                    // Replace with your condition to enable, e.g., branch name check
+                    return branch == 'integration'
+                }
+            }
             steps {
+                // Build Docker image (assuming Dockerfile exists)
                 sh 'docker build -t python-flask .'
+
+                // Start a container for integration tests
+                sh 'docker run -d --name integration-test python-flask'
+
+                // Replace the following with your actual integration test commands
+                // These commands should interact with the running container
+                sh 'curl http://localhost:5000/api/endpoint1'  // Example API call
+                sh 'docker logs integration-test'  // Check container logs
+
+                // Stop the container after tests
+                sh 'docker stop integration-test'
+                sh 'docker rm integration-test'  // Remove container
             }
         }
     }

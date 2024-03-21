@@ -43,12 +43,12 @@ pipeline {
         
         //Create Docker image stages
         stage('Docker-build') {
-            when {
-                expression { // Optional condition to trigger this stage
+            //when {
+             //   expression { // Optional condition to trigger this stage
                     // Replace with your condition to enable, e.g., branch name check
-                    return env.BRANCH_NAME == 'integration'
-                }
-            }
+               //     return env.BRANCH_NAME == 'integration'
+                //}
+            //}
             steps {
                 // Build Docker image (assuming Dockerfile exists)
                 sh 'docker build -t python-flask .'

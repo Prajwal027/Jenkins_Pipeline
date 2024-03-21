@@ -54,11 +54,11 @@ pipeline {
                 sh 'docker build -t python-flask .'
                 //sh 'docker kill integration-test'
                 // Start a container for integration tests
-                sh 'docker run -d --name integration-test1 python-flask'
+                sh 'docker run -d --name integration-test2 python-flask'
 
                 // Replace the following with your actual integration test commands
                 // These commands should interact with the running container
-                sh 'curl http://localhost:5000/api/endpoint1'  // Example API call
+                sh 'curl http://localhost:5000/'  // Example API call
                 sh 'docker logs integration-test'  // Check container logs
 
                 // Stop the container after tests

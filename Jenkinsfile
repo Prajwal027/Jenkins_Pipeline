@@ -45,7 +45,7 @@ pipeline {
         stage('Integration Test') {
             steps {
                 // Deploy the application using the integration.yaml definition
-                sh 'kubectl apply -f integration.yaml'
+                sh 'kubectl apply -f intigration.yaml'
 
                 // Wait for the Pod to be ready before running tests
                 script {

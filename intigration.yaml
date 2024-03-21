@@ -58,7 +58,7 @@ spec:
 
   #   periodSeconds: 20
   restartPolicy: Always
-  ---------------------------------------------------------------------------------------------------------------------------------
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -82,7 +82,6 @@ spec:
           protocol: TCP
         # ... (volume mount, resources, probes - optional)
       restartPolicy: Always
-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 

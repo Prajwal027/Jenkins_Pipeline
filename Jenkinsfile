@@ -63,7 +63,7 @@ pipeline {
 
                 // Stop the container after tests
                 sh 'docker stop integration-test'
-                sh 'docker rm integration-test'  // Remove container
+                //sh 'docker rm integration-test'  // Remove container
             }
         }
     }

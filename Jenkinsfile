@@ -47,19 +47,6 @@ pipeline {
                 // Deploy the application using the integration.yaml definition
                 sh 'kubectl apply -f intigration.yaml'
 
-                // Wait for the Pod to be ready before running tests
-                script {
-                    def timeout(time: 120, unit: 'seconds') {
-                        while (true) {
-                            def podStatus = sh(returnStdout: true, script: 'kubectl get pod flask-app -o jsonpath="{.status.containerStatuses[0].ready}"')
-                            if (podStatus == 'true') {
-                                break
-                            }
-                            sleep(5)
-                        }
-                    }
-                }
-
                 // Run integration tests against the deployed application
                 // (Replace 'your_integration_test.py' with your actual test script)
                 sh 'python3 your_integration_test.py'

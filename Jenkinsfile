@@ -46,7 +46,7 @@ pipeline {
             when {
                 expression { // Optional condition to trigger this stage
                     // Replace with your condition to enable, e.g., branch name check
-                    return branch == 'integration'
+                    return env.BRANCH_NAME == 'integration'
                 }
             }
             steps {

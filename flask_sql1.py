@@ -3,7 +3,8 @@ import os
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
-
+# pylint: disable=line-too-long
+# pylint: disable=too-few-public-methods
 app=Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 

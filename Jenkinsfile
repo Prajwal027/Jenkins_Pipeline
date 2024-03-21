@@ -52,9 +52,9 @@ pipeline {
             steps {
                 // Build Docker image (assuming Dockerfile exists)
                 sh 'docker build -t python-flask .'
-                sh 'docker kill integration-test'
+                //sh 'docker kill integration-test'
                 // Start a container for integration tests
-                sh 'docker run -d --name integration-test python-flask'
+                sh 'docker run -d --name integration-test1 python-flask'
 
                 // Replace the following with your actual integration test commands
                 // These commands should interact with the running container

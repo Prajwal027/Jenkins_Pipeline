@@ -42,28 +42,30 @@ pipeline {
         }
         
         //Create Docker image stages
-        stage('Docker-build') {
-            //when {
-             //   expression { // Optional condition to trigger this stage
-                    // Replace with your condition to enable, e.g., branch name check
-               //     return env.BRANCH_NAME == 'integration'
-                //}
-            //}
+        stage('Integration Test') {
             steps {
-                // Build Docker image (assuming Dockerfile exists)
-                sh 'docker build -t python-flask .'
-                //sh 'docker kill integration-test'
-                // Start a container for integration tests
-                sh 'docker run -d --name integration-test2 python-flask'
+                // Deploy the application using the integration.yaml definition
+                sh 'kubectl apply -f integration.yaml'
 
-                // Replace the following with your actual integration test commands
-                // These commands should interact with the running container
-                sh 'curl http://localhost:5000/'  // Example API call
-                sh 'docker logs integration-test'  // Check container logs
+                // Wait for the Pod to be ready before running tests
+                script {
+                    def timeout(time: 120, unit: 'seconds') {
+                        while (true) {
+                            def podStatus = sh(returnStdout: true, script: 'kubectl get pod flask-app -o jsonpath="{.status.containerStatuses[0].ready}"')
+                            if (podStatus == 'true') {
+                                break
+                            }
+                            sleep(5)
+                        }
+                    }
+                }
 
-                // Stop the container after tests
-                sh 'docker stop integration-test'
-                //sh 'docker rm integration-test'  // Remove container
+                // Run integration tests against the deployed application
+                // (Replace 'your_integration_test.py' with your actual test script)
+                sh 'python3 your_integration_test.py'
+
+                // Clean up the deployed resources
+                sh 'kubectl delete -f integration.yaml'
             }
         }
     }

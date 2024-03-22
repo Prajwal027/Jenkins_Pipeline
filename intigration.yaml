@@ -76,7 +76,7 @@ spec:
       # Same container spec from Pod definition
       containers:
       - name: flask-app
-        image: python-flask  # Replace with your image name
+        image: prajwalpm27/python_flask1  # Replace with your image name
         ports:
         - containerPort: 5000
           protocol: TCP

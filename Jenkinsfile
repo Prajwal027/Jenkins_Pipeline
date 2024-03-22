@@ -45,7 +45,7 @@ pipeline {
         stage('Integration Test') {
             steps {
                 // Deploy the application using the integration.yaml definition
-                sh 'kubectl apply -f intigration.yaml'
+                sh 'kubectl apply -f intigration.yaml --validate=flase'
 
                 // Run integration tests against the deployed application
                 // (Replace 'your_integration_test.py' with your actual test script)

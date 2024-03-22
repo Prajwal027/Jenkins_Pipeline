@@ -44,12 +44,13 @@ pipeline {
         //Create Docker image stages
         stage('Integration Test') {
             steps {
+                sh 'kubectl get pods'
                 // Deploy the application using the integration.yaml definition
-                sh 'kubectl apply -f intigration.yaml --validate=false'
+                sh 'kubectl apply -f intigration.yaml'
 
                 // Run integration tests against the deployed application
-                // (Replace 'your_integration_test.py' with your actual test script)
-                sh 'python3 your_integration_test.py'
+                // (Replace with your actual test script)
+                sh 'python3 tests/*.py'
 
                 // Clean up the deployed resources
                 sh 'kubectl delete -f integration.yaml'

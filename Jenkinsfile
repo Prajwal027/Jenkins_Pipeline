@@ -45,7 +45,8 @@ pipeline {
         stage('Integration Test') {
             steps {
                 stage('Integration Test') {
-                withCredentials([username: '$JENKINS_USERNAME', password: '$JENKINS_PASSWORD', file(credentialsId: 'jenkins-token', variable: 'TOKEN')]) {
+                withCredentials([usernamePassword(credentialsId: 'jenkins-token', usernameVariable: 'JENKINS_USERNAME', passwordVariable: 'JENKINS_PASSWORD')]) {
+    
                 sh 'kubectl get pods --token $TOKEN'
                 sh """
                 kubectl apply -f intigration.yaml --token $TOKEN

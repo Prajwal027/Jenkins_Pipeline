@@ -44,9 +44,11 @@ pipeline {
         //Create Docker image stages
         stage('Integration Test') {
             steps {
-                sh 'kubectl get pods'
+                withCredentials([file(credentialsId: 'my-kube-credentials', variable: 'KUBE_CONFIG')]) {
+                sh "kubectl apply -f intigration.yaml --kubeconfig $KUBE_CONFIG"
+                sh 'kubectl get pods --kubeconfig $KUBE_CONFIG'
                 // Deploy the application using the integration.yaml definition
-                sh 'kubectl apply -f intigration.yaml'
+                //sh 'kubectl apply -f intigration.yaml'
 
                 // Run integration tests against the deployed application
                 // (Replace with your actual test script)
@@ -54,6 +56,7 @@ pipeline {
 
                 // Clean up the deployed resources
                 sh 'kubectl delete -f integration.yaml'
+                }
             }
         }
     }

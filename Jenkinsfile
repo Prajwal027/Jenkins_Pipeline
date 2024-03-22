@@ -45,7 +45,6 @@ pipeline {
         stage('Integration Test') {
             steps {
                 stage('Integration Test') {
-            steps {
                 withCredentials([username: '$JENKINS_USERNAME', password: '$JENKINS_PASSWORD', file(credentialsId: 'jenkins-token', variable: 'TOKEN')]) {
                 sh 'kubectl get pods --token $TOKEN'
                 sh """
@@ -62,6 +61,7 @@ pipeline {
 
                 // Clean up the deployed resources
                 sh 'kubectl delete -f integration.yaml'
+                }
                 }
             }
         }

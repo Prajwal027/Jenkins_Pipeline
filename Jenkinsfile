@@ -44,7 +44,6 @@ pipeline {
         //Create Docker image stages
         stage('Integration Test') {
             steps {
-                stage('Integration Test') {
                 withCredentials([usernamePassword(credentialsId: 'jenkins-token', usernameVariable: 'JENKINS_USERNAME', passwordVariable: 'JENKINS_PASSWORD')]) {
     
                 sh 'kubectl get pods --token $TOKEN'
@@ -62,7 +61,7 @@ pipeline {
 
                 // Clean up the deployed resources
                 sh 'kubectl delete -f integration.yaml'
-                }
+                
                 }
             }
         }

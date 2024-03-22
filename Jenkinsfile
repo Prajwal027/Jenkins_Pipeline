@@ -44,25 +44,15 @@ pipeline {
         //Create Docker image stages
         stage('Integration Test') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'jenkins-token', usernameVariable: 'prajwal_27', passwordVariable: 'Mahesha9611')]) {
-    
-                sh 'kubectl get pods --token $TOKEN'
+                sh 'kubectl get pods'
                 sh """
-                kubectl apply -f intigration.yaml --token $TOKEN
+                kubectl apply -f intigration.yaml
                 """
-
-                //sh "kubectl apply -f intigration.yaml"
-                // Deploy the application using the integration.yaml definition
-                //sh 'kubectl apply -f intigration.yaml'
-
-                // Run integration tests against the deployed application
-                // (Replace with your actual test script)
                 sh 'python3 tests/*.py'
 
                 // Clean up the deployed resources
                 sh 'kubectl delete -f integration.yaml'
                 
-                }
             }
         }
     }

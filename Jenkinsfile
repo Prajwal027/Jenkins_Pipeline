@@ -44,7 +44,7 @@ pipeline {
         //Create Docker image stages
         stage('Integration Test') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'jenkins-token', usernameVariable: 'JENKINS_USERNAME', passwordVariable: 'JENKINS_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'jenkins-token', usernameVariable: 'prajwal_27', passwordVariable: 'Mahesha9611')]) {
     
                 sh 'kubectl get pods --token $TOKEN'
                 sh """

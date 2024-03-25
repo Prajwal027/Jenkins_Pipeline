@@ -44,15 +44,17 @@ pipeline {
         //Create Docker image stages
         stage('Integration Test') {
             steps {
-                sh 'kubectl get pods'
-                sh """
-                kubectl apply -f intigration.yaml
-                """
-                //sh 'python3 tests/*.py'
-
-                // Clean up the deployed resources
-                sh 'kubectl delete -f integration.yaml'
+                // Deploy application to Kubernetes cluster
+                sh 'kubectl apply -f intigration.yaml'
                 
+                // Wait for deployment to be ready
+                sh 'kubectl wait --for=condition=available --timeout=300s deployment/flask-app-deployment'
+                
+                // Run integration tests against the deployed application
+                sh 'source venv/bin/activate && python3 tests/uni_test.py'
+                
+                // Clean up the deployed resources
+                sh 'kubectl delete -f intigration.yaml'
             }
         }
     }

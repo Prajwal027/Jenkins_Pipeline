@@ -44,14 +44,14 @@ pipeline {
         //Create Docker image stages
         stage('Integration Test') {
             steps {
-                sh 'kubectl get pods'
+                sh 'sudo kubectl get pods'
                 sh """
-                kubectl apply -f intigration.yaml
+                sudo kubectl apply -f intigration.yaml
                 """
                 sh 'python3 tests/*.py'
 
                 // Clean up the deployed resources
-                sh 'kubectl delete -f integration.yaml'
+                sh 'sudo kubectl delete -f integration.yaml'
                 
             }
         }

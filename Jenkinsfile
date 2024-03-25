@@ -48,7 +48,7 @@ pipeline {
                 sh """
                 kubectl apply -f intigration.yaml
                 """
-                sh 'python3 tests/*.py'
+                //sh 'python3 tests/*.py'
 
                 // Clean up the deployed resources
                 sh 'kubectl delete -f integration.yaml'

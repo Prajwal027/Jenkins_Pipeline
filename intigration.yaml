@@ -7,58 +7,12 @@ metadata:
 spec:
   containers:
   - name: flask-app
-    image: prajwalpm27/python_flask1  # Replace with your actual image name (from Jenkinsfile)
+    image: prajwalpm27/python_flask1
     ports:
-    - containerPort: 5000  # Flask app typically runs on port 5000
+    - containerPort: 5000
       protocol: TCP
-
-    # Volume mount for database (if needed):
-
-    # - name: database-volume
-
-    #   mountPath: /app/database.db
-
-    # resources:
-
-    #   limits:
-
-    #     memory: "1Gi"
-
-    #     cpu: "1"
-
-    #   requests:
-
-    #     memory: "500Mi"
-
-    #     cpu: "0.5"  # Adjust resource requests/limits as needed
-
-  # Liveness/readiness probes (optional):
-
-  # livenessProbe:
-
-  #   httpGet:
-
-  #     path: /health
-
-  #     port: 5000
-
-  #   initialDelaySeconds: 15
-
-  #   periodSeconds: 20
-
-  # readinessProbe:
-
-  #   httpGet:
-
-  #     path: /health
-
-  #     port: 5000
-
-  #   initialDelaySeconds: 30
-
-  #   periodSeconds: 20
   restartPolicy: Always
-
+...
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -80,7 +34,6 @@ spec:
         ports:
         - containerPort: 5000
           protocol: TCP
-        # ... (volume mount, resources, probes - optional)
       restartPolicy: Always
 
 

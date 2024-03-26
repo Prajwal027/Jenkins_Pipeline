@@ -51,7 +51,7 @@ pipeline {
                 sh 'kubectl wait --for=condition=available --timeout=300s deployment/flask-app-deployment'
                 
                 // Run integration tests against the deployed application
-                sh 'source venv/bin/activate && python3 tests/uni_test.py'
+                sh 'python3 tests/uni_test.py'
                 
                 // Clean up the deployed resources
                 sh 'kubectl delete -f intigration.yaml'

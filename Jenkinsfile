@@ -44,6 +44,7 @@ pipeline {
         //Create Docker image stages
         stage('Integration Test') {
             steps {
+                sh 'minikube start --driver=docker'
                 // Deploy application to Kubernetes cluster
                 sh 'kubectl apply -f intigration.yaml'
                 

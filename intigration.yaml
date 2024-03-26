@@ -18,7 +18,7 @@ kind: Deployment
 metadata:
   name: flask-app-deployment
 spec:
-  replicas: 1  # Number of replicas(can be scaled)
+  replicas: 1 # Number of replicas(can be scaled)
   selector:
     matchLabels:
       app: flask-app

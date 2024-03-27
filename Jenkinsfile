@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'linux' }  //Run on any available agent
+    agent { label 'linux' }
 
     stages {
         // Checkout stage

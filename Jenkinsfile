@@ -73,7 +73,7 @@ pipeline {
                 to: "prajwalpm27@gmail.com",
                 from: "demojenkins21@outlook.com",
                 replyTo: "jenkins@example.com",
-                mimetype: "text/html"
+                mimeType: "text/html"
             )
         }
     }

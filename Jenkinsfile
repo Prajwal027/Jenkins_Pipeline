@@ -61,7 +61,7 @@ pipeline {
     }
     post {
         always {
-            emailext {
+            emailext (
                 subject: "Pipeline Status: ${curentBuild.result}",
                 body: """<html>
                             <body>
@@ -74,7 +74,7 @@ pipeline {
                 from: "demojenkins21@outlook.com",
                 replyTo: "jenkins@example.com",
                 mimetype: "text/html"
-            }
+            )
         }
     }
 }

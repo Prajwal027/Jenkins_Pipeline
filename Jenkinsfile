@@ -59,4 +59,22 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            emailext {
+                subject: "Pipeline Status: ${curentBuild.result}",
+                body: """<html>
+                            <body>
+                                <p>Build Status: ${currentBuild.result}</p>
+                                <p>Build Number: ${currentBuild.number}</p>
+                                <p>check the <a href-"${env.Build_URL}">console output</a>.</p>
+                            </body>
+                        </html>"""
+                to: "prajwalpm27@gmail.com",
+                from: "demojenkins21@outlook.com",
+                replyTo: "jenkins@example.com",
+                mimetype: "text/html"
+            }
+        }
+    }
 }

@@ -62,17 +62,17 @@ pipeline {
     post {
         always {
             emailext (
-                subject: "Pipeline Status: ${currentBuild.result}",
+                subject: "Pipeline Status: ${BUILD_STATUS}",
                 body: """<html>
                             <body>
-                                <p>Build Status: ${currentBuild.result}</p>
-                                <p>Build Number: ${currentBuild.number}</p>
-                                <p>check the <a href-"${env.Build_URL}">console output</a>.</p>
+                                <p>Build Status: ${BUILD_STATUS}</p>
+                                <p>Build Number: ${BUILD_NUMBER}</p>
+                                <p>check the <a href-"${BUILD_URL}">console output</a>.</p>
                             </body>
                         </html>""",
                 to: "prajwalpm27@gmail.com",
                 from: "demojenkins21@outlook.com",
-                replyTo: "jenkins@example.com",
+                replyTo: "demojenkins21@outlook.com",
                 mimeType: "text/html"
             )
         }

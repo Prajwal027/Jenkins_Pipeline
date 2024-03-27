@@ -69,7 +69,7 @@ pipeline {
                                 <p>Build Number: ${currentBuild.number}</p>
                                 <p>check the <a href-"${env.Build_URL}">console output</a>.</p>
                             </body>
-                        </html>"""
+                        </html>""",
                 to: "prajwalpm27@gmail.com",
                 from: "demojenkins21@outlook.com",
                 replyTo: "jenkins@example.com",

@@ -60,7 +60,7 @@ pipeline {
         }
         stage ('Image Scan with Anchor'){
             steps {
-                anchor name: 'prajwalpm27/python_flask1'
+                anchore name: 'prajwalpm27/python_flask1'
             }
         }
     }

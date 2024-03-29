@@ -58,6 +58,11 @@ pipeline {
                 sh 'kubectl delete -f intigration.yaml'
             }
         }
+        stage ('Image Scan with Anchor'){
+            steps {
+                anchor name: 'prajwalpm27/python_flask1'
+            }
+        }
     }
     post {
         always {

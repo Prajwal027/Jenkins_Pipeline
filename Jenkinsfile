@@ -40,6 +40,12 @@ pipeline {
                 sh 'pylint flask_sql1.py tests/*.py'
             }
         }
+
+        stage('build docker image') {
+            steps {
+                sh 'docker build -t python_flask1'
+            }
+        }
         
         //Create Docker image stages
         stage('Integration Test') {
@@ -60,7 +66,7 @@ pipeline {
         }
         stage ('Image Scan with Anchor'){
             steps {
-                anchore name: 'prajwalpm27/python_flask1'
+                anchore name: 'python_flask1'
             }
         }
     }

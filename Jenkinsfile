@@ -43,7 +43,7 @@ pipeline {
 
         stage('build docker image') {
             steps {
-                sh 'docker buildx build -t python_flask1'
+                sh 'docker build -t python_flask1 .'
             }
         }
         

@@ -44,6 +44,7 @@ pipeline {
         stage('build docker image') {
             steps {
                 sh 'docker build -t python_flask1 .'
+                anchore name: 'python_flask1'
             }
         }
         
@@ -64,11 +65,11 @@ pipeline {
                 sh 'kubectl delete -f intigration.yaml'
             }
         }
-        stage ('Image Scan with Anchor'){
-            steps {
-                anchore name: 'python_flask1'
-            }
-        }
+        //stage ('Image Scan with Anchor'){
+            //steps {
+                //anchore name: 'python_flask1'
+            //}
+        //}
     }
     post {
         always {

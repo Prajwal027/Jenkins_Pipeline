@@ -9,4 +9,4 @@ jobs:
         uses: actions/checkout@v4
       - name: build
         run: sh 'python3 -m venv venv'
-        run: sh 'source venv/bin/activate'
+      - run: sh 'source venv/bin/activate'

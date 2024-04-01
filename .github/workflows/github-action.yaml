@@ -5,10 +5,17 @@ jobs:
   python-dev:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: build
+      - name: Build
         run: |
              python3 -m venv venv
              source venv/bin/activate
              pip install -r requirements.txt
+      - name: Tests
+        run: |
+             python3 tests/uni_test.py
+             python3 tests/uni_test_edit.py
+             pyhton3 tests/uni_test_delete.py
+      - name: Static code Analysis
+        run: pylint flask_sql1.py tests/*.py

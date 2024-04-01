@@ -28,6 +28,5 @@ jobs:
              kubectl create serviceaccount default -n default
              kubectl get sa
              kubectl apply -f intigration.yaml
-             kubectl wait --for=condition=available --timeout=300s deployment/flask-app-deployment
              kubectl delete -f intigration.yaml
              kubectl get service

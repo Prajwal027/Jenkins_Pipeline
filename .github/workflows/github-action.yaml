@@ -12,8 +12,13 @@ jobs:
              python3 -m venv venv
              source venv/bin/activate
              pip install -r requirements.txt
+      - name: Tests
+        run: |
+             source venv/bin/activate
              python3 tests/uni_test.py
              python3 tests/uni_test_edit.py
              python3 tests/uni_test_delete.py
       - name: Static code Analysis
-        run: pylint flask_sql1.py tests/*.py
+        run: |
+             source venv/bin/activate
+             pylint flask_sql1.py tests/*.py

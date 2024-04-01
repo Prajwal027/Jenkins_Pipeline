@@ -41,12 +41,12 @@ pipeline {
             }
         }
 
-        stage('build docker image') {
-            steps {
-                sh 'docker build -t python_flask1 .'
-                anchore name: 'python_flask1'
-            }
-        }
+        //stage('build docker image') {
+          //  steps {
+            //    sh 'docker build -t python_flask1 .'
+              //  anchore name: 'python_flask1'
+            //}
+        //}
         
         //Create Docker image stages
         stage('Integration Test') {

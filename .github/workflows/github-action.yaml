@@ -14,6 +14,7 @@ jobs:
              pip install -r requirements.txt
       - name: Tests
         run: |
+             ls ${{ github.workspace }}
              python3 tests/uni_test.py
              python3 tests/uni_test_edit.py
              python3 tests/uni_test_delete.py

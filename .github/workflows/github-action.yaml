@@ -2,8 +2,11 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  checkout-stage:
+  python-dev:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v4
+      - name: build
+        run: sh 'python3 -m venv venv'
+        run: sh 'source venv/bin/activate'

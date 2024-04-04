@@ -52,17 +52,18 @@ pipeline {
         stage('Integration Test') {
             steps {
                 sh 'minikube start --driver=docker'
+                sh 'kubectl delete pod flask-app'
                 sh 'kubectl apply -f intigration.yaml'
 
                 // Wait for deployment to be ready
                 sh 'kubectl get deployment'
                 sh 'kubectl get pods'
-                //sh 'kubectl wait --for=condition=available --timeout=300s deployment/flask-app-deployment'
+                sh 'kubectl wait --for=condition=available --timeout=300s pod/flask-app'
 
                 // Get a list of pods with the appropriate label
-                sh 'kubectl get pods -l app=flask-app -o name'.split('\n').each { podName ->
-                    sh "kubectl exec ${podName} -- bash -c 'echo \"Executing command in ${podName}\"; ls -l'"
-                }
+               // sh 'kubectl get pods -l app=flask-app -o name'.split('\n').each { podName ->
+                    sh "kubectl exec flask-app -- bash -c 'echo \"Executing command in flask-app\"; ls -l'"
+                //}
                 // Run integration tests against the deployed application
                 sh 'python3 tests/uni_test.py'
 

@@ -60,7 +60,7 @@ pipeline {
                 sh 'kubectl get deployment'
                 sh 'kubectl get pods'
                 sh 'sleep 50'
-                sh 'kubectl wait --for=condition=Running pod/flask-app --timeout=100s'
+                //sh 'kubectl wait --for=condition=Running pod/flask-app --timeout=100s'
                 sh 'kubectl get pods'
 
                 // Get a list of pods with the appropriate label

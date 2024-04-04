@@ -35,11 +35,11 @@ pipeline {
              }
 
         // Static Code Analysis stage
-        stage('Static code Analysis') {
-            steps {
+        //stage('Static code Analysis') {
+            //steps {
                 //sh 'pylint flask_sql1.py tests/*.py'
-            }
-        }
+            //}
+        //}
 
         //stage('build docker image') {
           //  steps {

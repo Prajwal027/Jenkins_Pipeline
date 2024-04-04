@@ -58,13 +58,9 @@ pipeline {
                 sh 'kubectl wait --for=condition=available --timeout=300s deployment/flask-app-deployment'
 
                 // Get a list of pods with the appropriate label
-                def pods = sh(returnStdout: true, script: 'kubectl get pods -l app=flask-app -o name')
-
-                // Example execution loop for multiple pods (replace with your commands)
-                pods.split().each { podName ->
+                sh(returnStdout: true, script: 'kubectl get pods -l app=flask-app -o name') | each { podName ->
                     sh "kubectl exec ${podName} -- bash -c 'echo \"Executing command in ${podName}\"; ls -l'"
                 }
-
                 // Run integration tests against the deployed application
                 sh 'python3 tests/uni_test.py'
 

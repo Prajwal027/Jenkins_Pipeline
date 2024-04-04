@@ -10,3 +10,5 @@ sqlalchemy>=2.0.16
 typing-extensions>=4.6.0
 greenlet!=0.4.17
 pylint
+unittest
+requests

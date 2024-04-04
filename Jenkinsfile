@@ -55,6 +55,8 @@ pipeline {
                 sh 'kubectl apply -f intigration.yaml'
 
                 // Wait for deployment to be ready
+                sh 'kubectl get deployment'
+                sh 'kubectl get pods'
                 sh 'kubectl wait --for=condition=available --timeout=300s deployment/flask-app-deployment'
 
                 // Get a list of pods with the appropriate label

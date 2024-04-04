@@ -23,9 +23,9 @@ class TestDelete(unittest.TestCase):
             existing_student = Student.query.get(student_id)
             self.assertIsNotNone(existing_student, "Student does not exist")
             # Send a POST request to delete the student
-            rv = self.app.post(f'/{student_id}/delete')
+            checking_status = self.app.post(f'/{student_id}/delete')
             # Check if the student has been deleted successfully
-            self.assertEqual(rv.status_code, 302)
+            self.assertEqual(checking_status.status_code, 302)
             # Verify that the student has been deleted from the database
             with app.app_context():
                 deleted_student = Student.query.get(student_id)

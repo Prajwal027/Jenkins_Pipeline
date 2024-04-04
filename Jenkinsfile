@@ -52,8 +52,8 @@ pipeline {
         stage('Integration Test') {
             steps {
                 sh 'minikube start --driver=docker'
-                sh 'kubectl get pods'
-                sh 'kubectl delete pod flask-app'
+                //sh 'kubectl get pods'
+                //sh 'kubectl delete pod flask-app'
                 sh 'kubectl apply -f intigration.yaml'
 
                 // Wait for deployment to be ready

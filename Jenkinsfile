@@ -57,7 +57,7 @@ pipeline {
                 // Wait for deployment to be ready
                 sh 'kubectl get deployment'
                 sh 'kubectl get pods'
-                sh 'kubectl wait --for=condition=available --timeout=300s deployment/flask-app-deployment'
+                //sh 'kubectl wait --for=condition=available --timeout=300s deployment/flask-app-deployment'
 
                 // Get a list of pods with the appropriate label
                 sh 'kubectl get pods -l app=flask-app -o name'.split('\n').each { podName ->

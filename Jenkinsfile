@@ -65,7 +65,7 @@ pipeline {
 
                 // Get a list of pods with the appropriate label
                // sh 'kubectl get pods -l app=flask-app -o name'.split('\n').each { podName ->
-                sh "kubectl exec flask-app -- bash -c 'echo \"Executing command in flask-app\"; ls -l;vim inti_test.py;pip install requests;python3 inti_test.py'"
+                sh "kubectl exec flask-app -- bash -c 'echo \"Executing command in flask-app\"; ls -l;pip install requests;python3 inti_test.py'"
                 //}
                 // Run integration tests against the deployed application
                 //sh 'python3 tests/uni_test.py'

@@ -16,9 +16,9 @@ class TestCreate(unittest.TestCase):
 
     def test_create_student_get(self):
         """Test GET request to access create form"""
-        rv = self.app.get('/create')
-        self.assertEqual(rv.status_code, 200)
-        self.assertIn(b"Create", rv.data)
+        checking_status = self.app.get('/create')
+        self.assertEqual(checking_status.status_code, 200)
+        self.assertIn(b"Create", rchecking_status.data)
 
     def test_create_student_post(self):
         """Test POST request with student data"""
@@ -38,13 +38,13 @@ class TestCreate(unittest.TestCase):
             "bio": "This is Sid",
         }
         # Send POST request with data
-        rv = self.app.post('/create', data=new_student)
-        rv1 = self.app.post('/create', data=new_student1)
+        checking_status = self.app.post('/create', data=new_student)
+        checking_status1 = self.app.post('/create', data=new_student1)
         # Assert successful creation (redirect or database check)
-        if b"Email already exists. Please use a different email." not in rv.data:
-            self.assertEqual(rv.status_code, 302)  # Assuming redirect on success
-        if b"Email already exists. Please use a different email." not in rv1.data:
-            self.assertEqual(rv1.status_code, 302)
+        if b"Email already exists. Please use a different email." not in checking_status.data:
+            self.assertEqual(checking_status.status_code, 302)  # Assuming redirect on success
+        if b"Email already exists. Please use a different email." not in checking_status1.data:
+            self.assertEqual(checking_status1.status_code, 302)
 
 if __name__=='__main__':
     unittest.main()

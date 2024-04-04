@@ -72,7 +72,7 @@ def create():
 @app.route('/<int:student_id>/edit', methods=('POST', 'GET'))
 def edit(student_id):
     """
-    Handles the editing of a student record. 
+    Handles the editing of a student record.
     1. If already present in the database, it will render create.html template.
     2. If not then return 404 not found.
     """

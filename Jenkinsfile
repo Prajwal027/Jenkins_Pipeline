@@ -53,7 +53,7 @@ pipeline {
             steps {
                 //sh 'minikube start --driver=docker'
                 sh 'kubectl get pods'
-                //sh 'kubectl delete pod flask-app'
+                sh 'kubectl delete pod flask-app'
                 sh 'kubectl apply -f intigration.yaml'
 
                 // Wait for deployment to be ready

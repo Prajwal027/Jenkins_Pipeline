@@ -9,6 +9,7 @@ COPY requirements.txt .
 
 # Install dependencies listed in requirements.txt
 RUN pip install -r requirements.txt
+RUN pip install gunicorn
 
 # Copy the application code
 COPY . .
@@ -17,4 +18,4 @@ COPY . .
 EXPOSE 5000
 
 # Set the command to execute the Flask application
-CMD ["python3", "flask_sql1.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8008", "flask_sql1:app"]

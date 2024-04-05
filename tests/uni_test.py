@@ -1,7 +1,7 @@
 """This is a test unit for create() in flask application"""
 import sys
 import unittest
-sys.path.append('/home/runner/work/Jenkins_Pipeline/Jenkins_Pipeline/')
+sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
 from flask_sql1 import app # pylint: disable=wrong-import-position
 
 class TestCreate(unittest.TestCase):
@@ -18,7 +18,7 @@ class TestCreate(unittest.TestCase):
         """Test GET request to access create form"""
         checking_status = self.app.get('/create')
         self.assertEqual(checking_status.status_code, 200)
-        self.assertIn(b"Create", rchecking_status.data)
+        self.assertIn(b"Create", checking_status.data)
 
     def test_create_student_post(self):
         """Test POST request with student data"""

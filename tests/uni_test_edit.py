@@ -1,7 +1,7 @@
 """This is a test unit for edit() in flask application"""
 import sys
 import unittest
-sys.path.append('/home/runner/work/Jenkins_Pipeline/Jenkins_Pipeline/')
+sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
 from flask_sql1 import app # pylint: disable=wrong-import-position
 # pylint: disable=line-too-long
 class TestEdit(unittest.TestCase):
@@ -16,8 +16,8 @@ class TestEdit(unittest.TestCase):
 
     def test_edit_student_get(self):
         """Test GET request to access edit form"""
-        rv = self.app.get('/1/edit')
-        self.assertEqual(rv.status_code, 200, "This Student_id is not created")
+        checking_status = self.app.get('/1/edit')
+        self.assertEqual(checking_status.status_code, 200, "This Student_id is not created")
 
     def test_edit_student_post(self):
         """Test POST request with updated student data"""
@@ -29,8 +29,8 @@ class TestEdit(unittest.TestCase):
             "bio": "This is an updated biography",
         }
         # Send POST request with data
-        rv = self.app.post('/1/edit', data=updated_student)
+        checking_status = self.app.post('/1/edit', data=updated_student)
         # Assert successful update (redirect or database check)
-        self.assertEqual(rv.status_code, 302)
+        self.assertEqual(checking_status.status_code, 302)
 if __name__ == '__main__':
     unittest.main()

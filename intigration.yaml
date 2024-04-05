@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: flask-app
+  name: flask-app1
   labels:
-    app: flask-app
+    app: flask-app1
 spec:
   containers:
-  - name: flask-app
-    image: prajwalpm27/python_flask1
+  - name: flask-app1
+    image: prajwal027/demo-flask2
     ports:
-    - containerPort: 5000
+    - containerPort: 8008
       protocol: TCP
   restartPolicy: Always
 ...
@@ -21,20 +21,17 @@ spec:
   replicas: 1 # Number of replicas(can be scaled)
   selector:
     matchLabels:
-      app: flask-app
+      app: flask-app1
   template:
     metadata:
       labels:
-        app: flask-app
+        app: flask-app1
     spec:
       # Same container spec from Pod definition
       containers:
-      - name: flask-app
-        image: prajwalpm27/python_flask1  
+      - name: flask-app1
+        image: prajwal027/demo-flask2
         ports:
-        - containerPort: 5000
+        - containerPort: 8008
           protocol: TCP
       restartPolicy: Always
-
-
-

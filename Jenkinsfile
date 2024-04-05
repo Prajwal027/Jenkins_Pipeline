@@ -30,53 +30,34 @@ pipeline {
                     sh 'python3 tests/uni_test.py'  
                     sh 'python3 tests/uni_test_edit.py'
                     sh 'python3 tests/uni_test_delete.py'
-                    //sh 'python3 flask_sql1.py'
                   }
              }
 
         // Static Code Analysis stage
-        //stage('Static code Analysis') {
-            //steps {
-                //sh 'pylint flask_sql1.py tests/*.py'
-            //}
-        //}
+        stage('Static code Analysis') {
+            steps {
+                sh 'pylint flask_sql1.py tests/*.py'
+            }
+        }
 
         //stage('build docker image') {
           //  steps {
             //    sh 'docker build -t python_flask1 .'
-              //  anchore name: 'python_flask1'
             //}
         //}
-        
-        //Create Docker image stages
-        stage('Integration Test') {
+        stage('Integration Test And Deployment') {
             steps {
+                //use this cmd if minikube is not started
                 //sh 'minikube start --driver=docker'
-                sh 'kubectl get pods'
-                //sh 'kubectl delete pod flask-app'
                 sh 'kubectl apply -f intigration.yaml'
-
-                // Wait for deployment to be ready
-                //sh 'kubectl get deployment'
                 sh 'kubectl get pods'
+                // Wait for deployment to be ready
                 sh 'sleep 50'
                 sh 'kubectl get pods'
-
-                // Get a list of pods with the appropriate label
-               // sh 'kubectl get pods -l app=flask-app -o name'.split('\n').each { podName ->
                 sh "kubectl exec flask-app1 -- bash -c 'echo \"Executing command in flask-app1\"; ls -l;pip install requests;python3 inti_test.py'"
-                //}
-                // Run integration tests against the deployed application
-                //sh 'python3 tests/uni_test.py'
-
                 sh 'kubectl delete -f intigration.yaml'
             }
         }
-        //stage ('Image Scan with Anchor'){
-            //steps {
-                //anchore name: 'python_flask1'
-            //}
-        //}
     }
     post {
         always {

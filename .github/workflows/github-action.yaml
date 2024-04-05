@@ -33,3 +33,4 @@ jobs:
              kubectl get pods
              kubectl exec flask-app1 -- bash -c 'echo \"Executing command in flask-app1\"; ls -l;pip install requests;python3 inti_test.py'
              kubectl delete -f intigration.yaml
+             #this is end

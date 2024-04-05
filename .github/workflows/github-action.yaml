@@ -25,6 +25,8 @@ jobs:
       - name: Integration Testing and Deployments
         run: | 
              minikube start --driver=docker
+             kubectl create serviceaccount default -n default
+             kubectl get sa
              kubectl apply -f intigration.yaml
              kubectl get pods
              // Wait for deployment to be ready

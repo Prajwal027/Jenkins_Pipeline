@@ -25,8 +25,10 @@ jobs:
       - name: Integration Testing and Deployments
         run: | 
              minikube start --driver=docker
-             kubectl create serviceaccount default -n default
-             kubectl get sa
              kubectl apply -f intigration.yaml
+             kubectl get pods
+             // Wait for deployment to be ready
+             sleep 50
+             kubectl get pods
+             kubectl exec flask-app1 -- bash -c 'echo \"Executing command in flask-app1\"; ls -l;pip install requests;python3 inti_test.py'
              kubectl delete -f intigration.yaml
-             kubectl get service

@@ -12,7 +12,6 @@ class TestCreate(unittest.TestCase):
         """This is just an setup function for create() test units"""
         app.testing = True
         self.app = app.test_client()
-        # Consider adding a fixture to set up a test database
 
     def test_create_student_get(self):
         """Test GET request to access create form"""

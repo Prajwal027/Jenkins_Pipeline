@@ -12,7 +12,6 @@ class TestEdit(unittest.TestCase):
         """This is just an setup function for edit test unit"""
         app.testing = True
         self.app = app.test_client()
-        # Consider adding a fixture to set up a test database
 
     def test_edit_student_get(self):
         """Test GET request to access edit form"""

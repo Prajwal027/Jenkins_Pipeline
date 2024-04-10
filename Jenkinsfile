@@ -40,14 +40,7 @@ pipeline {
             }
         }
 
-        stage('build docker image') {
-            steps {
-                sh 'docker build -t yo1 .'
-                sh 'docker images'
-                sh 'docker tag yo1 prajwal027/yo1'
-                sh 'docker push prajwal027/yo1'
-            }
-        }
+        // Integration Test and Deployment
         stage('Integration Test And Deployment') {
             steps {
                 //use this cmd if minikube is not started

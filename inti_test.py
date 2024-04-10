@@ -45,7 +45,7 @@ class TestFlaskApp(unittest.TestCase):
         (Requires creating a student beforehand)
         """
         # Implement logic to create a student first (e.g., using test_create_student)
-        student_id = 4  # Replace with the actual ID of the created student
+        student_id = 2  # Replace with the actual ID of the created student
 
         data = {
             "firstname": "chetan",

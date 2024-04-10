@@ -40,11 +40,14 @@ pipeline {
             }
         }
 
-        //stage('build docker image') {
-          //  steps {
-            //    sh 'docker build -t python_flask1 .'
-            //}
-        //}
+        stage('build docker image') {
+            steps {
+                sh 'docker build -t yo .'
+                sh 'docker images'
+                sh 'docker tag yo prajwal027/yo'
+                sh 'docker push prajwal027/yo'
+            }
+        }
         stage('Integration Test And Deployment') {
             steps {
                 //use this cmd if minikube is not started

@@ -42,10 +42,10 @@ pipeline {
 
         stage('build docker image') {
             steps {
-                sh 'docker build -t yo .'
+                sh 'docker build -t yo1 .'
                 sh 'docker images'
-                sh 'docker tag yo prajwal027/yo'
-                sh 'docker push prajwal027/yo'
+                sh 'docker tag yo1 prajwal027/yo1'
+                sh 'docker push prajwal027/yo1'
             }
         }
         stage('Integration Test And Deployment') {

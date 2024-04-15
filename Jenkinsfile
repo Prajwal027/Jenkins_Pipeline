@@ -42,7 +42,7 @@ pipeline {
         stage('build docker image') {
             steps {
                 sh 'docker build -t demo1 .'
-                sh 'docker tag yo1 prajwal027/demo1'
+                sh 'docker tag demo1 prajwal027/demo1'
                 sh 'docker push prajwal027/demo1'
             }
         }

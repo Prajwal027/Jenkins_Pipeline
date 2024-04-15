@@ -39,6 +39,13 @@ pipeline {
                 sh 'pylint flask_sql1.py tests/*.py'
             }
         }
+        stage('build docker image') {
+            steps {
+                sh 'docker build -t demo1 .'
+                sh 'docker tag yo1 prajwal027/demo1'
+                sh 'docker push prajwal027/demo1'
+            }
+        }
 
         // Integration Test and Deployment
         stage('Integration Test And Deployment') {

@@ -30,6 +30,9 @@ pipeline {
                     sh 'python3 tests/uni_test.py'  
                     sh 'python3 tests/uni_test_edit.py'
                     sh 'python3 tests/uni_test_delete.py'
+                    sh 'cd tests'
+                    sh 'ls'
+                    sh 'cd ..'
                   }
              }
 

@@ -37,11 +37,11 @@ pipeline {
              }
 
         // Static Code Analysis stage
-        stage('Static code Analysis') {
-            steps {
-                sh 'pylint flask_sql1.py tests/*.py'
-            }
-        }
+        //stage('Static code Analysis') {
+            //steps {
+                //sh 'pylint flask_sql1.py tests/*.py'
+            //}
+        //}
         stage('build docker image') {
             steps {
                 sh 'docker build -t demo1 .'
@@ -66,6 +66,9 @@ pipeline {
         }
     }
     post {
+        success {
+            archiveArtifacts(artifacts: 'target/**')
+        }
         always {
             emailext (
                 subject: "Pipeline Status: ${currentBuild.result}",

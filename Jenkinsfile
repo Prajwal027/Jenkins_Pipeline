@@ -67,7 +67,7 @@ pipeline {
     }
     post {
         success {
-            archiveArtifacts(artifacts: 'target/**')
+            archiveArtifacts(artifacts: '**/*.jar')
         }
         always {
             emailext (

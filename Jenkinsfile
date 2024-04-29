@@ -66,9 +66,6 @@ pipeline {
         }
     }
     post {
-        success {
-            archiveArtifacts(artifacts: '**/*.jar')
-        }
         always {
             emailext (
                 subject: "Pipeline Status: ${currentBuild.result}",

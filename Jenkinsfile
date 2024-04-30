@@ -59,7 +59,7 @@ pipeline {
                 sh 'kubectl apply -f intigration.yaml'
                 sh 'kubectl get pods'
                 // Wait for deployment to be ready
-                sh 'sleep 50'
+                sh 'sleep 80'
                 sh 'kubectl get pods'
                 sh "kubectl exec flask-app1 -- bash -c 'echo \"Executing command in flask-app1\"; ls -l;pip install requests;python3 inti_test.py'"
                 sh 'kubectl delete -f intigration.yaml'

@@ -54,7 +54,6 @@ pipeline {
         // Integration Test and Deployment
         stage('Integration Test And Deployment') {
             steps {
-                //use this cmd if minikube is not started
                 //sh 'minikube start --driver=docker'
                 sh 'kubectl apply -f intigration.yaml'
                 sh 'kubectl get pods'

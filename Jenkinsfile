@@ -50,7 +50,7 @@ pipeline {
                 sh 'docker push prajwal027/demo1'
             }
         }
-
+//hi
         // Integration Test and Deployment
         stage('Integration Test And Deployment') {
             steps {

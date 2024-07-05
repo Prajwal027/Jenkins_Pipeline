@@ -1,7 +1,7 @@
 """This is a test unit for create() in flask application"""
 import sys
 import unittest
-sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
+sys.path.append('/home/sonic/workspace/study run')
 from flask_sql1 import app # pylint: disable=wrong-import-position
 
 class TestCreate(unittest.TestCase):

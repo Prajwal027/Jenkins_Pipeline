@@ -1,7 +1,7 @@
 """This is used as test unit for delete() in flask application"""
 import sys
 import unittest
-sys.path.append('/var/lib/jenkins/workspace/Jenkins_miniproject@2')
+sys.path.append('/home/sonic/workspace/study run')
 from flask_sql1 import app, db, Student # pylint: disable=wrong-import-position
 
 class TestDelete(unittest.TestCase):
